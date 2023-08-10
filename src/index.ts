@@ -26,7 +26,3 @@ export function createCooldown(limitPerMin: number, period: number = 60): cooldo
     };
     return tracker;
 };
-
-
-const duck = createCooldown(2);
-console.log(duck.tick(), duck.tick(), duck.tick());

@@ -18,7 +18,7 @@ export function createCooldown(limitPerMin: number, period: number = 60): cooldo
             };
 
             if (tracker.strikes.length + 1 > tracker.limit) {
-                return tracker.period - (Date.now() - tracker.strikes[tracker.strikes.length - 1]);
+                return tracker.period - (Date.now() - tracker.strikes[0]);
             } else {
                 tracker.strikes.push(Date.now());
                 return 0;

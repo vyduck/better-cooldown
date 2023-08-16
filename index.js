@@ -12,11 +12,12 @@ function createCooldown(limitPerMin, period = 60) {
                     tracker.strikes = tracker.strikes.splice(Number(strike), Number(strike));
             }
             ;
-            if (tracker.strikes.length + 1 > tracker.limit)
-                return false;
+            if (tracker.strikes.length + 1 > tracker.limit) {
+                return tracker.period - (Date.now() - tracker.strikes[tracker.strikes.length - 1]);
+            }
             else {
                 tracker.strikes.push(Date.now());
-                return true;
+                return 0;
             }
             ;
         }

@@ -8,7 +8,7 @@ export interface cooldown {
 export function createCooldown(limitPerMin: number, period: number = 60): cooldown {
     let tracker: cooldown = {
         limit: limitPerMin,
-        period: period *1000,
+        period: period * 1000,
         strikes: [],
         tick: () => {
             for (let strike in tracker.strikes) {
@@ -17,10 +17,11 @@ export function createCooldown(limitPerMin: number, period: number = 60): cooldo
                 ) tracker.strikes = tracker.strikes.splice(Number(strike), Number(strike));
             };
 
-            if (tracker.strikes.length + 1 > tracker.limit) return false;
-            else {
+            if (tracker.strikes.length + 1 > tracker.limit) {
+                return tracker.period - (Date.now() - tracker.strikes[tracker.strikes.length - 1]);
+            } else {
                 tracker.strikes.push(Date.now());
-                return true;
+                return 0;
             };
         }
     };

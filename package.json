@@ -1,6 +1,6 @@
 {
   "name": "better-cooldown",
-  "version": "1.0.4",
+  "version": "1.1.0",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -11,10 +11,14 @@
     "cooldown",
     "utility"
   ],
-  "author": "",
+  "author": "vyduck",
   "license": "ISC",
   "devDependencies": {
     "typescript": "^5.1.6"
   },
-  "files": ["index.js", "index.d.ts"]
+  "files": ["index.js", "index.d.ts"],
+  "repository": {
+    "url": "https://github.com/vyduck/better-cooldown"
+  },
+  "homepage": "https://github.com/vyduck/better-cooldown"
 }
